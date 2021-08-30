@@ -6,15 +6,15 @@ data class GithubRepositoryResponse(
     @SerializedName("total_count")
     val total: Long,
     @SerializedName("items")
-    val items: List<GithubRepository>
+    val items: List<GithubModel>
 )
 
-data class GithubRepository(
+data class GithubModel(
     val id: Long,
     @SerializedName("name")
     val name: String,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("full_name")
     val fullName: String,
     @SerializedName("forks_count")
