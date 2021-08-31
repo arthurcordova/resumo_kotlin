@@ -50,4 +50,13 @@ class GithubRepository() {
 
     }
 
+    fun insertIntoDb() {
+
+    }
+
+    fun fetchRepositoriesFromDb(language: String) {
+
+    }
+
+
 }

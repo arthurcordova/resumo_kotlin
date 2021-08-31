@@ -16,7 +16,10 @@ import com.proway.resumo_curso.R
 import com.proway.resumo_curso.databinding.MainFragmentBinding
 import com.proway.resumo_curso.model.GithubModel
 import com.proway.resumo_curso.view_model.MainViewModel
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment(R.layout.main_fragment) {
 
     companion object {

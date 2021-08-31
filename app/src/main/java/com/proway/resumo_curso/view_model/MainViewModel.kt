@@ -5,8 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.proway.resumo_curso.model.GithubModel
 import com.proway.resumo_curso.repository.GithubRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repository: GithubRepository
+) : ViewModel() {
 
     /**
      * Lista os repositórios
@@ -19,8 +24,6 @@ class MainViewModel : ViewModel() {
      */
     private val _page = MutableLiveData(0)
     val page: LiveData<Int> = _page
-
-    private val repository = GithubRepository()
 
     /**
      * Sempre será chamado passando a página, caso não passe nenhuma irá passar por default 1
