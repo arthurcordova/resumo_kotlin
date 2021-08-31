@@ -8,14 +8,23 @@ import com.proway.resumo_curso.repository.GithubRepository
 
 class MainViewModel : ViewModel() {
 
+    /**
+     * Lista os repositórios
+     */
     private val _repositories = MutableLiveData<List<GithubModel>>()
     val repositories: LiveData<List<GithubModel>> = _repositories
 
-    private val _page = MutableLiveData<Int>(0)
+    /**
+     * Criado esta variavel para armazenar a paginação que o user esta atuando.
+     */
+    private val _page = MutableLiveData(0)
     val page: LiveData<Int> = _page
 
     private val repository = GithubRepository()
 
+    /**
+     * Sempre será chamado passando a página, caso não passe nenhuma irá passar por default 1
+     */
     fun fetchRepositories(language: String, page: Int = 1) {
         repository.fetchRepositories(language = language, page = page) { response, _ ->
             response?.let { resp ->
@@ -24,12 +33,11 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Atualiza a página
+     */
     fun nextPage() {
         _page.value = _page.value!! + 1
-    }
-
-    fun previousPage() {
-        _page.value = _page.value!! - 1
     }
 
 }

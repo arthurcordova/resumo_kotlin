@@ -26,8 +26,10 @@ class GithubRepositoriesAdapter : RecyclerView.Adapter<GithubItemViewHolder>() {
 
     override fun getItemCount(): Int = listOf.size
 
+    /**
+     * Aqui sempre irá carregar os items que já estão na lista com os novos que serão recebidos por parametro
+     */
     fun refresh(newList: List<GithubModel>) {
-        listOf = mutableListOf()
         listOf.addAll(newList)
         notifyDataSetChanged()
     }
