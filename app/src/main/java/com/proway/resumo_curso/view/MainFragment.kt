@@ -38,6 +38,7 @@ class MainFragment : Fragment(R.layout.main_fragment) {
          */
         binding.linearLayout.visibility = GONE
         adapter.refresh(list)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
